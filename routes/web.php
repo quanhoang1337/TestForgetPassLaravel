@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SVController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,4 +26,8 @@ Route::get('/test', function(){
 
 Route::get('download', function(){
     return view('download');
-})->middleware('auth'); 
+})->middleware('auth');
+
+Route::get('/sv', [SVController::class, 'sv']);
+Route::post('/sv', [SVController::class, 'sv_store'])->name('sv_store');
+
